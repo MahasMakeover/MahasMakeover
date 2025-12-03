@@ -17,7 +17,7 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-xl text-neutral">
-              We'd love to hear from you and discuss your special day
+              We&apos;d love to hear from you and discuss your special day
             </p>
           </div>
         </div>
