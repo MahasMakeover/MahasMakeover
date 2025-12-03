@@ -19,7 +19,7 @@ export default function PrivacyPage() {
                 Last updated: {new Date().toLocaleDateString()}
               </p>
               <p className="text-text mb-6">
-                At Maha's Makeover, we are committed to protecting your privacy.
+                At Maha&apos;s Makeover, we are committed to protecting your privacy.
                 This Privacy Policy explains how we collect, use, and safeguard
                 your personal information.
               </p>

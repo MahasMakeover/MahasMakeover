@@ -26,7 +26,7 @@ export default function TermsPage() {
                 Services
               </h2>
               <p className="text-text mb-6">
-                Maha's Makeover provides bridal makeup, event makeup, saree
+                Maha&apos;s Makeover provides bridal makeup, event makeup, saree
                 draping, and makeup classes. All services are subject to
                 availability and booking confirmation.
               </p>
@@ -42,7 +42,7 @@ export default function TermsPage() {
                 Limitation of Liability
               </h2>
               <p className="text-text mb-6">
-                Maha's Makeover shall not be liable for any indirect, incidental,
+                Maha&apos;s Makeover shall not be liable for any indirect, incidental,
                 or consequential damages arising from the use of our services.
               </p>
               <h2 className="text-2xl font-heading font-bold text-text mt-8 mb-4">

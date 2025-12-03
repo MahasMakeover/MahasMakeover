@@ -40,7 +40,7 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/hero-1.jpg"
-            alt="Maha's Makeover"
+            alt="Maha&apos;s Makeover"
             fill
             className="object-cover"
             priority
@@ -56,7 +56,7 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 drop-shadow-2xl">
-                About Maha's Makeover
+                About Maha&apos;s Makeover
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
                 Transforming bridal dreams into reality with passion, precision, and artistry
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
                   <Image
                     src="/images/ourstory.jpg"
-                    alt="Maha's Makeover - Bridal Artistry"
+                    alt="Maha&apos;s Makeover - Bridal Artistry"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -136,7 +136,7 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-6 text-lg text-text leading-relaxed">
                   <p>
-                    Maha's Makeover is a professional bridal makeup service led by a
+                    Maha&apos;s Makeover is a professional bridal makeup service led by a
                     passionate makeup artist who specializes in bridal looks and
                     event makeup for weddings (Haldi, Mehendi, Engagement, Wedding,
                     Reception), photoshoots, and other celebrations.
@@ -145,11 +145,11 @@ export default function AboutPage() {
                     In addition to makeup, the business offers expert saree draping and
                     personalised bridal makeup classes. The business emphasizes luxury,
                     elegance, and a modern aesthetic, delivering tailored looks that
-                    match each client's personality and event.
+                    match each client&apos;s personality and event.
                   </p>
                   <p>
                     From intimate haldi ceremonies to extravagant receptions, every look
-                    is crafted to enhance natural beauty while matching the bride's
+                    is crafted to enhance natural beauty while matching the bride&apos;s
                     personality and event theme. With years of experience and a keen eye
                     for detail, we ensure that every client feels confident and beautiful
                     on their special day.
@@ -280,10 +280,10 @@ export default function AboutPage() {
                   <p className="text-lg text-neutral leading-relaxed">
                     No two brides are the same, and neither should their makeup be. We take
                     time to understand your vision, your style, and your personality to
-                    create a look that's uniquely yours.
+                    create a look that&apos;s uniquely yours.
                   </p>
                   <p className="text-lg text-neutral leading-relaxed">
-                    From the initial consultation to the final touch-up, we're with you
+                    From the initial consultation to the final touch-up, we&apos;re with you
                     every step of the way, ensuring perfection in every detail.
                   </p>
                 </div>
@@ -322,7 +322,7 @@ export default function AboutPage() {
               Ready to Begin Your Journey?
             </h2>
             <p className="text-xl text-neutral mb-8">
-              Let's create something beautiful together. Book your consultation today.
+              Let&apos;s create something beautiful together. Book your consultation today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
