@@ -153,17 +153,17 @@ export default function Hero() {
       {/* Navigation Arrows - Enhanced */}
       <button
         onClick={goToPrevious}
-        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-30 bg-white/15 backdrop-blur-md p-2 sm:p-4 rounded-full hover:bg-white/25 transition-all border border-white/20 hover:border-white/40 group"
+        className="hidden sm:flex absolute left-6 top-1/2 -translate-y-1/2 z-30 bg-white/15 backdrop-blur-md p-4 rounded-full hover:bg-white/25 transition-all border border-white/20 hover:border-white/40 group items-center justify-center"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="text-white group-hover:scale-110 transition-transform w-5 h-5 sm:w-7 sm:h-7" />
+        <ChevronLeft size={28} className="text-white group-hover:scale-110 transition-transform" />
       </button>
       <button
         onClick={goToNext}
-        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-30 bg-white/15 backdrop-blur-md p-2 sm:p-4 rounded-full hover:bg-white/25 transition-all border border-white/20 hover:border-white/40 group"
+        className="hidden sm:flex absolute right-6 top-1/2 -translate-y-1/2 z-30 bg-white/15 backdrop-blur-md p-4 rounded-full hover:bg-white/25 transition-all border border-white/20 hover:border-white/40 group items-center justify-center"
         aria-label="Next slide"
       >
-        <ChevronRight className="text-white group-hover:scale-110 transition-transform w-5 h-5 sm:w-7 sm:h-7" />
+        <ChevronRight size={28} className="text-white group-hover:scale-110 transition-transform" />
       </button>
 
       {/* Enhanced Dots Indicator */}
