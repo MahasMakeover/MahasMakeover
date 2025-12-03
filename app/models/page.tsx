@@ -83,7 +83,7 @@ export default function ModelsPage() {
                     Thank You!
                   </h2>
                   <p className="text-lg text-neutral mb-8">
-                    We've received your application. We'll review it and get
+                    We&apos;ve received your application. We&apos;ll review it and get
                     back to you soon!
                   </p>
                   <a

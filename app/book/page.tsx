@@ -87,7 +87,7 @@ function BookForm() {
               Book a Consultation
             </h1>
             <p className="text-xl text-neutral">
-              Fill out the form below and we'll get back to you within 24 hours
+              Fill out the form below and we&apos;ll get back to you within 24 hours
             </p>
           </div>
         </div>
@@ -109,7 +109,7 @@ function BookForm() {
                     Thank You!
                   </h2>
                   <p className="text-lg text-neutral mb-8">
-                    We've received your booking enquiry. We'll contact you
+                    We&apos;ve received your booking enquiry. We&apos;ll contact you
                     within 24 hours to confirm details and next steps.
                   </p>
                   <a

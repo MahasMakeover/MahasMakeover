@@ -99,7 +99,7 @@ export default function ClassesPage() {
                 </div>
                 <div className="mb-6">
                   <h3 className="font-semibold text-text mb-3">
-                    What You'll Learn:
+                    What You&apos;ll Learn:
                   </h3>
                   <ul className="space-y-2">
                     {classItem.curriculum.map((item, i) => (
