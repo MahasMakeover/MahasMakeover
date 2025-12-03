@@ -93,7 +93,7 @@ export default function ReviewsPage() {
                     />
                   ))}
                 </div>
-                <p className="text-text mb-4 italic">"{review.review}"</p>
+                <p className="text-text mb-4 italic">&ldquo;{review.review}&rdquo;</p>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-semibold text-text">{review.name}</p>

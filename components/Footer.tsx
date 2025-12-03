@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-heading font-bold text-accent mb-4">
-              Maha's Makeover
+              Maha&apos;s Makeover
             </h3>
             <p className="text-neutral mb-4 max-w-md">
               Luxury bridal makeup, saree draping, photoshoot styling and
@@ -90,7 +90,7 @@ export default function Footer() {
 
         <div className="border-t border-neutral/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-neutral text-sm">
-            © {new Date().getFullYear()} Maha's Makeover. All rights reserved.
+            © {new Date().getFullYear()} Maha&apos;s Makeover. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-neutral hover:text-accent transition-colors text-sm">

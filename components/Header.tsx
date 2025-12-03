@@ -48,7 +48,7 @@ export default function Header() {
             <div className="relative h-10 w-10 md:h-12 md:w-12">
               <Image
                 src="/images/logo.png"
-                alt="Maha's Makeover Logo"
+                alt="Maha&apos;s Makeover Logo"
                 fill
                 className="object-contain"
                 sizes="48px"
@@ -67,7 +67,7 @@ export default function Header() {
                   : {}
               }
             >
-              Maha's Makeover
+              Maha&apos;s Makeover
             </span>
           </Link>
 
