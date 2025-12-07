@@ -245,7 +245,7 @@ Vercel will automatically:
 ## 📞 Support
 
 For questions or issues:
-- Email: info@mahasmakeover.com
+- Email: mahasmakeoverr@gmail.com
 - Check the [Next.js documentation](https://nextjs.org/docs)
 - Check the [Sanity documentation](https://www.sanity.io/docs)
 

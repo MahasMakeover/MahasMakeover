@@ -300,7 +300,44 @@ export default function ReviewsPage() {
                 className="overflow-hidden"
               >
                 <div className="max-w-2xl mx-auto mt-12">
-                  {/* Form card */}
+                  {/* Success State */}
+                  {submitStatus === 'success' ? (
+                    <div className="relative bg-white/80 backdrop-blur-xl p-10 md:p-16 rounded-3xl shadow-2xl shadow-accent/10 border border-accent/10 text-center">
+                      <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-100/50 rounded-full blur-3xl" />
+                      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-emerald-100/50 rounded-full blur-3xl" />
+                      
+                      <div className="relative">
+                        <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full shadow-lg mb-6">
+                          <CheckCircle className="text-white" size={40} />
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-text mb-4">
+                          Thank You! 💖
+                        </h2>
+                        <p className="text-lg text-neutral mb-6 max-w-md mx-auto">
+                          Your review has been submitted successfully. We truly appreciate you taking the time to share your experience with us.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                          <Link
+                            href="/gallery"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white rounded-full font-medium hover:bg-accent/90 transition-all"
+                          >
+                            <Sparkles size={18} />
+                            View Gallery
+                          </Link>
+                          <button
+                            onClick={() => {
+                              setSubmitStatus('idle')
+                              setShowForm(false)
+                            }}
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-accent/20 text-text rounded-full font-medium hover:border-accent transition-all"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                  /* Form card */
                   <div className="relative bg-white/80 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl shadow-accent/10 border border-accent/10">
                     {/* Decorative elements */}
                     <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
@@ -316,19 +353,6 @@ export default function ReviewsPage() {
                       </h2>
                       <p className="text-neutral mt-2">We&apos;d love to hear about your experience</p>
                     </div>
-
-                    {/* Success Message */}
-                    {submitStatus === 'success' && (
-                      <div className="mb-6 p-5 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl flex items-center gap-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                          <CheckCircle className="text-green-600" size={24} />
-                        </div>
-                        <div>
-                          <p className="text-green-800 font-semibold">Review Submitted!</p>
-                          <p className="text-green-700 text-sm">Thank you for sharing your experience with us.</p>
-                        </div>
-                      </div>
-                    )}
 
                     {/* Error Message */}
                     {submitStatus === 'error' && (
@@ -457,6 +481,7 @@ export default function ReviewsPage() {
                       </button>
                     </form>
                   </div>
+                  )}
                 </div>
               </motion.div>
             )}

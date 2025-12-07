@@ -74,6 +74,7 @@ export default function RootLayout({
               },
               sameAs: [
                 'https://www.instagram.com/mahas_makeover/',
+                'https://youtube.com/@mahasmakeover?si=MwjnY-2k_OBBvQfE',
               ],
               priceRange: '$$',
             }),

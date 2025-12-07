@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
-import { Calendar, User, Mail, Phone, MapPin, Sparkles, Heart, Upload, MessageSquare, CheckCircle } from 'lucide-react'
+import { Calendar, User, Mail, Phone, MapPin, Sparkles, Heart, MessageSquare, CheckCircle } from 'lucide-react'
 
 type BookingFormData = {
   name: string
@@ -18,7 +18,6 @@ type BookingFormData = {
   budget: string
   preferredTrial: string
   trialDate?: string
-  referenceImages?: FileList
   notes?: string
   hearAboutUs: string
   consent: boolean
@@ -56,11 +55,7 @@ function BookForm() {
       const formData = new FormData()
       Object.keys(data).forEach((key) => {
         const value = data[key as keyof BookingFormData]
-        if (key === 'referenceImages' && value instanceof FileList) {
-          Array.from(value).forEach((file) => {
-            formData.append('referenceImages', file)
-          })
-        } else if (key !== 'consent' && value !== undefined) {
+        if (key !== 'consent' && value !== undefined) {
           formData.append(key, String(value))
         }
       })
@@ -422,28 +417,6 @@ function BookForm() {
                         Additional Information
                       </h3>
                       
-                      <div className="mb-6">
-                        <label htmlFor="referenceImages" className={labelStyles}>
-                          <Upload size={16} className="text-accent" />
-                          Reference Images (Optional)
-                        </label>
-                        <div className="relative">
-                          <input
-                            type="file"
-                            id="referenceImages"
-                            multiple
-                            accept="image/*"
-                            {...register('referenceImages')}
-                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                          />
-                          <div className="w-full px-5 py-8 rounded-xl border-2 border-dashed border-neutral/30 hover:border-accent bg-white/30 text-center transition-all">
-                            <Upload className="mx-auto text-neutral/50 mb-2" size={32} />
-                            <p className="text-neutral">Drag & drop images here or click to browse</p>
-                            <p className="text-neutral/50 text-sm mt-1">Max 5MB each</p>
-                          </div>
-                        </div>
-                      </div>
-
                       <div className="mb-6">
                         <label htmlFor="notes" className={labelStyles}>
                           <MessageSquare size={16} className="text-accent" />

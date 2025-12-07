@@ -13,7 +13,7 @@ const classes = [
     title: 'Bridal Makeup Fundamentals',
     description:
       'Learn the basics of bridal makeup including skin prep, foundation matching, and long-lasting techniques.',
-    duration: '4 hours',
+    duration: '18 Days',
     price: '₹5,000',
     maxStudents: 6,
     curriculum: [
@@ -28,7 +28,7 @@ const classes = [
     title: 'Advanced Bridal Techniques',
     description:
       'Master advanced techniques for special occasions including contouring, highlighting, and glam looks.',
-    duration: '6 hours',
+    duration: '30 days',
     price: '₹8,000',
     maxStudents: 4,
     curriculum: [
@@ -43,7 +43,7 @@ const classes = [
     title: 'One-on-One Personalized Training',
     description:
       'Customized training session tailored to your skill level and goals.',
-    duration: '3 hours',
+    duration: '18 days',
     price: '₹6,000',
     maxStudents: 1,
     curriculum: [

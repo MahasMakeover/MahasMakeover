@@ -150,13 +150,13 @@ export default function ServicesPage() {
                       ))}
                     </ul>
                   </div>
-                  <div className="flex-1">
-                    <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl">
+                  <div className="flex-1 w-full">
+                    <div className="relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden shadow-xl">
                       <Image
                         src={service.image}
                         alt={service.title}
                         fill
-                        className="object-cover service-img"
+                        className="object-cover"
                         sizes="(max-width: 768px) 100vw, 50vw"
                         loading="lazy"
                       />

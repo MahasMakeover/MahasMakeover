@@ -53,7 +53,7 @@ export default function PrivacyPage() {
               </h2>
               <p className="text-text mb-6">
                 If you have any questions about this Privacy Policy, please
-                contact us at info@mahasmakeover.com.
+                contact us at mahasmakeoverr@gmail.com.
               </p>
             </div>
           </div>

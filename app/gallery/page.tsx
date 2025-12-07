@@ -2,17 +2,11 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Instagram, Camera, Sparkles, Heart, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
+import { X, Instagram, Youtube, Camera, Sparkles, Heart, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const categories = [
-  { id: 'All', label: 'All', icon: '✨' },
-  { id: 'Bridal', label: 'Bridal', icon: '💍' },
-  { id: 'BridesMaid', label: 'Bridesmaids', icon: '👯' },
-  { id: 'Celebrity', label: 'Celebrity', icon: '⭐' },
-  { id: 'Pre-wedding', label: 'Pre-wedding', icon: '📸' },
-]
+const categories = ['All', 'Bridal', 'Bridesmaids', 'Celebrity', 'Pre-wedding']
 
 interface GalleryItem {
   id: string | number
@@ -35,39 +29,39 @@ export default function GalleryPage() {
     { id: 1, category: 'Bridal', src: '/images/gallery-1.jpg', alt: 'Bridal look 1' },
     { id: 2, category: 'Bridal', src: '/images/gallery-2.jpg', alt: 'Bridal look 2' },
     { id: 3, category: 'Bridal', src: '/images/gallery-3.jpg', alt: 'Bridal look 3' },
-    { id: 4, category: 'BridesMaid', src: '/images/gallery-4.jpg', alt: 'BridesMaid look' },
+    { id: 4, category: 'Bridesmaids', src: '/images/gallery-4.jpg', alt: 'Bridesmaids look' },
     { id: 5, category: 'Celebrity', src: '/images/gallery-5.jpg', alt: 'Celebrity look' },
     { id: 6, category: 'Pre-wedding', src: '/images/gallery-6.jpg', alt: 'Pre-wedding shoot' },
     { id: 7, category: 'Bridal', src: '/images/gallery-7.jpg', alt: 'Bridal look 4' },
     { id: 8, category: 'Bridal', src: '/images/gallery-8.JPG', alt: 'Bridal look 5' },
-    { id: 9, category: 'BridesMaid', src: '/images/gallery-9.jpg', alt: 'BridesMaid look 2' },
-    { id: 10, category: 'BridesMaid', src: '/images/gallery-10.jpg', alt: 'BridesMaid look 3' },
+    { id: 9, category: 'Bridesmaids', src: '/images/gallery-9.jpg', alt: 'Bridesmaids look 2' },
+    { id: 10, category: 'Bridesmaids', src: '/images/gallery-10.jpg', alt: 'Bridesmaids look 3' },
     { id: 11, category: 'Celebrity', src: '/images/gallery-11.jpg', alt: 'Celebrity look 2' },
     { id: 12, category: 'Pre-wedding', src: '/images/gallery-12.jpg', alt: 'Pre-wedding shoot 2' },
     { id: 13, category: 'Bridal', src: '/images/gallery-13.jpg', alt: 'Bridal look 6' },
     { id: 14, category: 'Bridal', src: '/images/gallery-14.jpg', alt: 'Bridal look 7' },
     { id: 15, category: 'Bridal', src: '/images/gallery-15.jpg', alt: 'Bridal look 8' },
-    { id: 16, category: 'BridesMaid', src: '/images/gallery-16.jpg', alt: 'BridesMaid look 4' },
+    { id: 16, category: 'Bridesmaids', src: '/images/gallery-16.jpg', alt: 'Bridesmaids look 4' },
     { id: 17, category: 'Celebrity', src: '/images/gallery-17.jpg', alt: 'Celebrity look 3' },
     { id: 18, category: 'Celebrity', src: '/images/gallery-18.jpg', alt: 'Celebrity look 4' },
     { id: 19, category: 'Pre-wedding', src: '/images/gallery-19.jpg', alt: 'Pre-wedding shoot 3' },
     { id: 20, category: 'Bridal', src: '/images/gallery-20.jpg', alt: 'Bridal look 9' },
     { id: 21, category: 'Bridal', src: '/images/gallery-21.jpg', alt: 'Bridal look 10' },
     { id: 22, category: 'Bridal', src: '/images/gallery-22.jpg', alt: 'Bridal look 11' },
-    { id: 23, category: 'BridesMaid', src: '/images/gallery-23.jpg', alt: 'BridesMaid look 5' },
+    { id: 23, category: 'Bridesmaids', src: '/images/gallery-23.jpg', alt: 'Bridesmaids look 5' },
     { id: 24, category: 'Celebrity', src: '/images/gallery-24.jpg', alt: 'Celebrity look 5' },
     { id: 25, category: 'Celebrity', src: '/images/gallery-25.jpg', alt: 'Celebrity look 6' },
     { id: 26, category: 'Pre-wedding', src: '/images/gallery-26.jpg', alt: 'Pre-wedding shoot 4' },
     { id: 27, category: 'Bridal', src: '/images/gallery-27.jpg', alt: 'Bridal look 12' },
     { id: 28, category: 'Bridal', src: '/images/gallery-28.jpg', alt: 'Bridal look 13' },
     { id: 29, category: 'Bridal', src: '/images/gallery-29.jpg', alt: 'Bridal look 14' },
-    { id: 30, category: 'BridesMaid', src: '/images/gallery-30.jpg', alt: 'BridesMaid look 6' },
+    { id: 30, category: 'Bridesmaids', src: '/images/gallery-30.jpg', alt: 'Bridesmaids look 6' },
     { id: 31, category: 'Celebrity', src: '/images/gallery-31.jpg', alt: 'Celebrity look 7' },
     { id: 32, category: 'Pre-wedding', src: '/images/gallery-32.jpg', alt: 'Pre-wedding shoot 5' },
     { id: 33, category: 'Bridal', src: '/images/gallery-33.jpg', alt: 'Bridal look 15' },
     { id: 34, category: 'Bridal', src: '/images/gallery-34.jpg', alt: 'Bridal look 16' },
     { id: 35, category: 'Bridal', src: '/images/gallery-35.jpg', alt: 'Bridal look 17' },
-    { id: 36, category: 'BridesMaid', src: '/images/gallery-36.jpg', alt: 'BridesMaid look 7' },
+    { id: 36, category: 'Bridesmaids', src: '/images/gallery-36.jpg', alt: 'Bridesmaids look 7' },
     { id: 37, category: 'Celebrity', src: '/images/gallery-37.jpg', alt: 'Celebrity look 8' },
     { id: 38, category: 'Celebrity', src: '/images/gallery-38.jpg', alt: 'Celebrity look 9' },
     { id: 39, category: 'Pre-wedding', src: '/images/gallery-39.jpg', alt: 'Pre-wedding shoot 6' }
@@ -128,17 +122,27 @@ export default function GalleryPage() {
                 Explore our latest work and transformations
               </p>
               
-              {/* Instagram link */}
-              <a
-                href="https://www.instagram.com/mahas_makeover/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 hover:bg-white/20 transition-all"
-              >
-                <Instagram size={20} className="text-white" />
-                <span className="text-white">Follow @mahas_makeover</span>
-                <ArrowRight size={16} className="text-white group-hover:translate-x-1 transition-transform" />
-              </a>
+              {/* Social links */}
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href="https://www.instagram.com/mahas_makeover/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 hover:bg-white/20 transition-all"
+                >
+                  <Instagram size={20} className="text-white" />
+                  <span className="text-white">@mahas_makeover</span>
+                </a>
+                <a
+                  href="https://youtube.com/@mahasmakeover?si=MwjnY-2k_OBBvQfE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 hover:bg-white/20 transition-all"
+                >
+                  <Youtube size={20} className="text-white" />
+                  <span className="text-white">@MahasMakeover</span>
+                </a>
+              </div>
               
               {/* Stats */}
               <div className="flex flex-wrap justify-center gap-8 mt-10">
@@ -168,21 +172,20 @@ export default function GalleryPage() {
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
               <motion.button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
+                key={category}
+                onClick={() => setSelectedCategory(category)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
-                  selectedCategory === category.id
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  selectedCategory === category
                     ? 'bg-gradient-to-r from-accent to-accent2 text-white shadow-lg shadow-accent/30'
                     : 'bg-base text-text hover:bg-accent/10 border border-transparent hover:border-accent/20'
                 }`}
               >
-                <span>{category.icon}</span>
-                <span>{category.label}</span>
-                {selectedCategory === category.id && (
-                  <span className="ml-1 bg-white/20 px-2 py-0.5 rounded-full text-xs">
-                    {category.id === 'All' ? galleryItems.length : galleryItems.filter(i => i.category === category.id).length}
+                {category}
+                {selectedCategory === category && (
+                  <span className="ml-2 bg-white/20 px-2 py-0.5 rounded-full text-xs">
+                    {category === 'All' ? galleryItems.length : galleryItems.filter(i => i.category === category).length}
                   </span>
                 )}
               </motion.button>
@@ -301,15 +304,26 @@ export default function GalleryPage() {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-accent2 to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
               </Link>
-              <a
-                href="https://www.instagram.com/mahas_makeover/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 bg-white text-text px-10 py-5 rounded-full text-lg font-semibold border-2 border-accent/20 hover:border-accent shadow-sm hover:shadow-lg transition-all"
-              >
-                <Instagram size={20} className="text-accent group-hover:scale-110 transition-transform" />
-                Follow on Instagram
-              </a>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href="https://www.instagram.com/mahas_makeover/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-3 bg-white text-text px-8 py-4 rounded-full font-semibold border-2 border-accent/20 hover:border-accent shadow-sm hover:shadow-lg transition-all"
+                >
+                  <Instagram size={20} className="text-accent group-hover:scale-110 transition-transform" />
+                  Instagram
+                </a>
+                <a
+                  href="https://youtube.com/@mahasmakeover?si=MwjnY-2k_OBBvQfE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-3 bg-white text-text px-8 py-4 rounded-full font-semibold border-2 border-accent/20 hover:border-accent shadow-sm hover:shadow-lg transition-all"
+                >
+                  <Youtube size={20} className="text-accent group-hover:scale-110 transition-transform" />
+                  YouTube
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>

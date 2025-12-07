@@ -50,7 +50,7 @@ export default function TermsPage() {
               </h2>
               <p className="text-text mb-6">
                 If you have any questions about these Terms, please contact us
-                at info@mahasmakeover.com.
+                at mahasmakeoverr@gmail.com.
               </p>
             </div>
           </div>

@@ -22,7 +22,7 @@ const heroImages = [
   {
     src: '/images/hero-3.jpg',
     alt: 'Professional photoshoot styling',
-    title: 'Professional Makeup Classes maha',
+    title: 'Professional Makeup Classes',
     subtitle: 'Learn the art of bridal makeup with personalized training sessions.',
   },
 ]

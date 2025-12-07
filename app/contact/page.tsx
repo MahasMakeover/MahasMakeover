@@ -2,7 +2,8 @@
 
 import { useState, useRef } from 'react'
 import Image from 'next/image'
-import { Mail, Phone, MapPin, Instagram, Send, CheckCircle, AlertCircle, Sparkles } from 'lucide-react'
+import Link from 'next/link'
+import { Mail, Phone, MapPin, Instagram, Youtube, Send, CheckCircle, AlertCircle, Sparkles, Heart } from 'lucide-react'
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -119,10 +120,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-heading font-semibold text-text text-lg mb-1">Email</h3>
                     <a
-                      href="mailto:mahassmakeover@gmail.com"
+                      href="mailto:mahasmakeoverr@gmail.com"
                       className="text-neutral hover:text-accent transition-colors text-lg"
                     >
-                      mahassmakeover@gmail.com
+                      mahasmakeoverr@gmail.com
                     </a>
                   </div>
                 </div>
@@ -153,6 +154,23 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
+                
+                <div className="group flex items-start gap-5 p-4 rounded-2xl hover:bg-white hover:shadow-lg transition-all cursor-pointer">
+                  <div className="bg-gradient-to-br from-accent to-accent2 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform">
+                    <Youtube className="text-white" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold text-text text-lg mb-1">YouTube</h3>
+                    <a
+                      href="https://youtube.com/@mahasmakeover?si=MwjnY-2k_OBBvQfE"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral hover:text-accent transition-colors text-lg"
+                    >
+                      @MahasMakeover
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -162,6 +180,42 @@ export default function ContactPage() {
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent2/5 rounded-full blur-3xl" />
               
+              {submitStatus === 'success' ? (
+                <div className="relative bg-white rounded-3xl shadow-2xl shadow-accent/10 p-10 md:p-16 border border-accent/10 text-center">
+                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-100/50 rounded-full blur-3xl" />
+                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-emerald-100/50 rounded-full blur-3xl" />
+                  
+                  <div className="relative">
+                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full shadow-lg mb-6">
+                      <CheckCircle className="text-white" size={40} />
+                    </div>
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-text mb-4">
+                      Message Sent! 💖
+                    </h2>
+                    <p className="text-lg text-neutral mb-6 max-w-md mx-auto">
+                      Thank you for reaching out. We&apos;ll get back to you within 24 hours.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Link
+                        href="/services"
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white rounded-full font-medium hover:bg-accent/90 transition-all"
+                      >
+                        <Sparkles size={18} />
+                        View Services
+                      </Link>
+                      <button
+                        onClick={() => {
+                          setSubmitStatus('idle')
+                          setFieldValues({ name: '', email: '', message: '' })
+                        }}
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-accent/20 text-text rounded-full font-medium hover:border-accent transition-all"
+                      >
+                        Send Another Message
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
               <div className="relative bg-white rounded-3xl shadow-2xl shadow-accent/10 p-8 md:p-10 border border-accent/10">
                 {/* Form header */}
                 <div className="text-center mb-8">
@@ -173,18 +227,6 @@ export default function ContactPage() {
                   </h2>
                   <p className="text-neutral mt-2">We&apos;ll get back to you within 24 hours</p>
                 </div>
-                
-                {submitStatus === 'success' && (
-                  <div className="mb-6 p-5 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl flex items-center gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <CheckCircle className="text-green-600" size={24} />
-                    </div>
-                    <div>
-                      <p className="text-green-800 font-semibold">Message Sent!</p>
-                      <p className="text-green-700 text-sm">Thank you for reaching out. We&apos;ll be in touch soon.</p>
-                    </div>
-                  </div>
-                )}
                 
                 {submitStatus === 'error' && (
                   <div className="mb-6 p-5 bg-gradient-to-r from-red-50 to-rose-50 border border-red-200 rounded-2xl flex items-center gap-4">
@@ -298,6 +340,7 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
+              )}
             </div>
           </div>
         </div>

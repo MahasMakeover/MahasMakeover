@@ -80,7 +80,7 @@ We use Gmail SMTP with Nodemailer - completely free!
 
 ### Environment Variables Needed
 
-- `GMAIL_USER`: Your Gmail address (e.g., `mahassmakeover@gmail.com`)
+- `GMAIL_USER`: Your Gmail address (e.g., `mahasmakeoverr@gmail.com`)
 - `GMAIL_APP_PASSWORD`: The 16-character app password you generated
 - `ADMIN_EMAIL`: Email where you want to receive form submissions
 
