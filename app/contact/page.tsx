@@ -190,7 +190,7 @@ export default function ContactPage() {
                       <CheckCircle className="text-white" size={40} />
                     </div>
                     <h2 className="text-3xl md:text-4xl font-heading font-bold text-text mb-4">
-                      Message Sent! 💖
+                      Message Sent!
                     </h2>
                     <p className="text-lg text-neutral mb-6 max-w-md mx-auto">
                       Thank you for reaching out. We&apos;ll get back to you within 24 hours.

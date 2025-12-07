@@ -311,7 +311,7 @@ export default function ReviewsPage() {
                           <CheckCircle className="text-white" size={40} />
                         </div>
                         <h2 className="text-3xl md:text-4xl font-heading font-bold text-text mb-4">
-                          Thank You! 💖
+                          Thank You!
                         </h2>
                         <p className="text-lg text-neutral mb-6 max-w-md mx-auto">
                           Your review has been submitted successfully. We truly appreciate you taking the time to share your experience with us.
