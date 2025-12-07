@@ -7,9 +7,9 @@ Use this checklist to ensure everything is set up correctly before going live.
 ### 1. Environment Variables
 - [ ] Sanity Project ID configured
 - [ ] Sanity Dataset name set
-- [ ] SendGrid API key added
-- [ ] Admin email address set
-- [ ] From email address verified in SendGrid
+- [ ] Gmail user email set (GMAIL_USER)
+- [ ] Gmail App Password generated (GMAIL_APP_PASSWORD)
+- [ ] Admin email address set (ADMIN_EMAIL)
 - [ ] Google Analytics ID added (optional)
 
 ### 2. Content Setup
@@ -28,13 +28,14 @@ Use this checklist to ensure everything is set up correctly before going live.
 - [ ] Test approving a review
 - [ ] Verify images appear on website
 
-### 4. Email Configuration
-- [ ] SendGrid account created
-- [ ] API key generated with "Mail Send" permissions
-- [ ] Sender email verified
+### 4. Email Configuration (Gmail SMTP - FREE)
+- [ ] Gmail account ready
+- [ ] 2-Step Verification enabled on Gmail
+- [ ] App Password generated (16 characters)
+- [ ] Environment variables set (GMAIL_USER, GMAIL_APP_PASSWORD, ADMIN_EMAIL)
 - [ ] Test booking form submission
 - [ ] Verify admin receives email
-- [ ] Verify user receives confirmation email
+- [ ] Verify user receives confirmation email (optional)
 
 ### 5. Images & Assets
 - [ ] Hero carousel images added (3-5 images)
@@ -130,7 +131,7 @@ npm start
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Sanity Documentation](https://www.sanity.io/docs)
-- [SendGrid Documentation](https://docs.sendgrid.com)
+- [Gmail App Passwords](https://support.google.com/accounts/answer/185833)
 - [Vercel Documentation](https://vercel.com/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 

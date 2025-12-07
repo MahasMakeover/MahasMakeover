@@ -7,7 +7,7 @@ This guide will walk you through deploying the Maha's Makeover website to Vercel
 - GitHub account
 - Vercel account (free tier available)
 - Sanity account (for CMS)
-- SendGrid account (for emails)
+- Gmail account (for sending emails - free!)
 - Domain name (optional, but recommended)
 
 ## Step 1: Push to GitHub
@@ -57,21 +57,32 @@ sanity init
    - Copy the Project ID
    - Note the Dataset name (usually "production")
 
-## Step 3: Set Up SendGrid
+## Step 3: Set Up Gmail for Sending Emails (FREE)
 
-1. Sign up at [sendgrid.com](https://sendgrid.com)
-2. Verify your email address
-3. Create an API Key:
-   - Go to Settings > API Keys
-   - Click "Create API Key"
-   - Name it "Maha's Makeover"
-   - Give it "Mail Send" permissions
-   - Copy the API key (you won't see it again!)
+We use Gmail SMTP with Nodemailer - completely free!
 
-4. Verify a sender email:
-   - Go to Settings > Sender Authentication
-   - Verify a Single Sender (for testing) or set up Domain Authentication (for production)
-   - Use this email as your `FROM_EMAIL`
+### Create a Gmail App Password
+
+1. Go to your Google Account settings: [myaccount.google.com](https://myaccount.google.com)
+
+2. Enable 2-Step Verification (required for App Passwords):
+   - Go to Security > 2-Step Verification
+   - Follow the prompts to enable it
+
+3. Create an App Password:
+   - Go to Security > 2-Step Verification > App passwords
+   - Or visit directly: [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
+   - Select app: "Mail"
+   - Select device: "Other (Custom name)" → enter "Mahas Makeover Website"
+   - Click "Generate"
+   - **Copy the 16-character password** (shown with spaces, but use without spaces)
+   - Store this safely - you won't see it again!
+
+### Environment Variables Needed
+
+- `GMAIL_USER`: Your Gmail address (e.g., `mahassmakeover@gmail.com`)
+- `GMAIL_APP_PASSWORD`: The 16-character app password you generated
+- `ADMIN_EMAIL`: Email where you want to receive form submissions
 
 ## Step 4: Deploy to Vercel
 
@@ -94,9 +105,9 @@ sanity init
    ```
    NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
    NEXT_PUBLIC_SANITY_DATASET=production
-   SENDGRID_API_KEY=your_sendgrid_api_key
+   GMAIL_USER=your_gmail@gmail.com
+   GMAIL_APP_PASSWORD=your_16_character_app_password
    ADMIN_EMAIL=your_admin_email@example.com
-   FROM_EMAIL=noreply@mahasmakeover.com
    NEXT_PUBLIC_GA_ID=your_google_analytics_id (optional)
    ```
 
@@ -180,7 +191,7 @@ sanity init
 ### Monitoring
 
 - Check Vercel dashboard for deployment status
-- Monitor SendGrid for email delivery
+- Check Gmail "Sent" folder to verify emails are being sent
 - Check Google Analytics for traffic
 - Review form submissions in Sanity
 
@@ -195,10 +206,12 @@ sanity init
 
 ### Emails Not Sending
 
-- Verify SendGrid API key is correct
-- Check sender email is verified
-- Check Vercel function logs
-- Verify `ADMIN_EMAIL` and `FROM_EMAIL` are set
+- Verify `GMAIL_USER` and `GMAIL_APP_PASSWORD` are correct
+- Make sure 2-Step Verification is enabled on your Gmail account
+- App Password must be 16 characters (no spaces)
+- Check Vercel function logs for specific errors
+- Verify `ADMIN_EMAIL` is set correctly
+- Test by sending a message from the contact form
 
 ### Images Not Loading
 

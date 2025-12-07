@@ -133,16 +133,24 @@ export default function Hero() {
               >
                 <Link
                   href="/book"
-                  className="group relative bg-accent text-white px-10 py-5 rounded-full text-lg font-semibold hover:bg-accent/90 transition-all hover:shadow-2xl hover:scale-105 overflow-hidden"
+                  className="group relative overflow-hidden bg-gradient-to-r from-accent to-accent2 text-white px-10 py-5 rounded-full text-lg font-semibold shadow-lg shadow-accent/40 hover:shadow-2xl hover:shadow-accent/50 transition-all"
                 >
-                  <span className="relative z-10">Book a Bridal Trial</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    Book a Bridal Trial
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent2 to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
                 <Link
                   href="/gallery"
-                  className="bg-white/15 backdrop-blur-md text-white px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/25 transition-all border-2 border-white/30 hover:border-white/50 hover:shadow-xl"
+                  className="group bg-white/10 backdrop-blur-md text-white px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/20 transition-all border-2 border-white/30 hover:border-white/50 shadow-lg hover:shadow-xl flex items-center gap-2"
                 >
                   View Portfolio
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </Link>
               </motion.div>
             </div>

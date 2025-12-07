@@ -1,8 +1,9 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Sparkles, Heart, Award, Users, Clock, Star } from 'lucide-react'
+import { Sparkles, Heart, Award, Users, Clock, Star, ArrowRight, Camera } from 'lucide-react'
 
 const stats = [
   { number: '500+', label: 'Happy clients', icon: Heart },
@@ -309,34 +310,47 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-accent/10 to-accent2/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-24 bg-gradient-to-br from-accent/10 via-accent2/5 to-accent/10 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-x-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent2/10 rounded-full blur-3xl translate-x-1/2" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-text mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full mb-6 shadow-sm">
+              <Sparkles className="text-accent" size={16} />
+              <span className="text-accent text-sm font-medium tracking-wide uppercase">Start Your Journey</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-text mb-6">
               Ready to Begin Your Journey?
             </h2>
-            <p className="text-xl text-neutral mb-8">
+            <p className="text-xl text-neutral mb-10 max-w-2xl mx-auto">
               Let&apos;s create something beautiful together. Book your consultation today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/book"
-                className="bg-accent text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-accent/90 transition-all hover:shadow-xl hover:scale-105"
+                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-gradient-to-r from-accent to-accent2 text-white px-10 py-5 rounded-full text-lg font-semibold shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-all"
               >
-                Book a Consultation
-              </a>
-              <a
+                <span className="relative z-10 flex items-center gap-2">
+                  <Heart size={20} className="group-hover:scale-110 transition-transform" />
+                  Book a Consultation
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-accent2 to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Link>
+              <Link
                 href="/gallery"
-                className="bg-white text-accent px-8 py-4 rounded-full text-lg font-semibold hover:bg-base transition-all border-2 border-accent"
+                className="group inline-flex items-center justify-center gap-3 bg-white text-accent px-10 py-5 rounded-full text-lg font-semibold border-2 border-accent/20 hover:border-accent shadow-sm hover:shadow-lg transition-all"
               >
+                <Camera size={20} className="group-hover:rotate-12 transition-transform" />
                 View Our Work
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
