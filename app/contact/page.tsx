@@ -1,24 +1,24 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { Mail, Phone, MapPin, Instagram, Send, CheckCircle, AlertCircle, Sparkles } from 'lucide-react'
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-  const [focusedField, setFocusedField] = useState<string | null>(null)
+  const [fieldValues, setFieldValues] = useState({ name: '', email: '', message: '' })
+  const formRef = useRef<HTMLFormElement>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    const formData = new FormData(e.currentTarget)
     const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      message: formData.get('message'),
+      name: fieldValues.name,
+      email: fieldValues.email,
+      message: fieldValues.message,
     }
 
     try {
@@ -28,9 +28,12 @@ export default function ContactPage() {
         body: JSON.stringify(data),
       })
 
-      if (response.ok) {
+      const result = await response.json()
+
+      if (response.ok && result.success) {
         setSubmitStatus('success')
-        e.currentTarget.reset()
+        setFieldValues({ name: '', email: '', message: '' })
+        if (formRef.current) formRef.current.reset()
       } else {
         setSubmitStatus('error')
       }
@@ -39,6 +42,14 @@ export default function ContactPage() {
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const handleFieldChange = (field: string, value: string) => {
+    setFieldValues(prev => ({ ...prev, [field]: value }))
+  }
+
+  const isFieldActive = (field: string) => {
+    return fieldValues[field as keyof typeof fieldValues]?.length > 0
   }
 
   return (
@@ -187,14 +198,14 @@ export default function ContactPage() {
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Field */}
                   <div className="relative">
                     <label
                       htmlFor="name"
                       className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                        focusedField === 'name' 
-                          ? '-top-2.5 text-xs text-accent bg-white px-2 font-medium' 
+                        isFieldActive('name')
+                          ? '-top-2.5 text-xs text-accent bg-white px-2 font-medium z-10' 
                           : 'top-4 text-neutral'
                       }`}
                     >
@@ -205,8 +216,8 @@ export default function ContactPage() {
                       id="name"
                       name="name"
                       required
-                      onFocus={() => setFocusedField('name')}
-                      onBlur={(e) => !e.target.value && setFocusedField(null)}
+                      value={fieldValues.name}
+                      onChange={(e) => handleFieldChange('name', e.target.value)}
                       className="w-full px-5 py-4 rounded-xl border-2 border-neutral/20 focus:border-accent focus:outline-none bg-transparent text-text transition-all"
                     />
                   </div>
@@ -216,8 +227,8 @@ export default function ContactPage() {
                     <label
                       htmlFor="email"
                       className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                        focusedField === 'email' 
-                          ? '-top-2.5 text-xs text-accent bg-white px-2 font-medium' 
+                        isFieldActive('email')
+                          ? '-top-2.5 text-xs text-accent bg-white px-2 font-medium z-10' 
                           : 'top-4 text-neutral'
                       }`}
                     >
@@ -228,8 +239,8 @@ export default function ContactPage() {
                       id="email"
                       name="email"
                       required
-                      onFocus={() => setFocusedField('email')}
-                      onBlur={(e) => !e.target.value && setFocusedField(null)}
+                      value={fieldValues.email}
+                      onChange={(e) => handleFieldChange('email', e.target.value)}
                       className="w-full px-5 py-4 rounded-xl border-2 border-neutral/20 focus:border-accent focus:outline-none bg-transparent text-text transition-all"
                     />
                   </div>
@@ -239,8 +250,8 @@ export default function ContactPage() {
                     <label
                       htmlFor="message"
                       className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                        focusedField === 'message' 
-                          ? '-top-2.5 text-xs text-accent bg-white px-2 font-medium' 
+                        isFieldActive('message')
+                          ? '-top-2.5 text-xs text-accent bg-white px-2 font-medium z-10' 
                           : 'top-4 text-neutral'
                       }`}
                     >
@@ -251,8 +262,8 @@ export default function ContactPage() {
                       name="message"
                       rows={5}
                       required
-                      onFocus={() => setFocusedField('message')}
-                      onBlur={(e) => !e.target.value && setFocusedField(null)}
+                      value={fieldValues.message}
+                      onChange={(e) => handleFieldChange('message', e.target.value)}
                       className="w-full px-5 py-4 rounded-xl border-2 border-neutral/20 focus:border-accent focus:outline-none bg-transparent text-text resize-none transition-all"
                     />
                   </div>

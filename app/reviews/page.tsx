@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Star, Quote, Heart, Sparkles, MessageSquare, User, Send, ChevronDown, ArrowRight } from 'lucide-react'
+import { Star, Quote, Heart, Sparkles, MessageSquare, User, Send, ChevronDown, ArrowRight, CheckCircle, AlertCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const reviews = [
@@ -83,6 +83,45 @@ export default function ReviewsPage() {
   const [showForm, setShowForm] = useState(false)
   const [selectedRating, setSelectedRating] = useState(5)
   const [hoveredRating, setHoveredRating] = useState(0)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const formRef = useRef<HTMLFormElement>(null)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get('name'),
+      eventType: formData.get('eventType'),
+      rating: selectedRating,
+      review: formData.get('reviewText'),
+    }
+
+    try {
+      const response = await fetch('/api/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+
+      if (response.ok && result.success) {
+        setSubmitStatus('success')
+        setSelectedRating(5)
+        if (formRef.current) formRef.current.reset()
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className="pt-20">
@@ -277,8 +316,34 @@ export default function ReviewsPage() {
                       </h2>
                       <p className="text-neutral mt-2">We&apos;d love to hear about your experience</p>
                     </div>
+
+                    {/* Success Message */}
+                    {submitStatus === 'success' && (
+                      <div className="mb-6 p-5 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl flex items-center gap-4">
+                        <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                          <CheckCircle className="text-green-600" size={24} />
+                        </div>
+                        <div>
+                          <p className="text-green-800 font-semibold">Review Submitted!</p>
+                          <p className="text-green-700 text-sm">Thank you for sharing your experience with us.</p>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Error Message */}
+                    {submitStatus === 'error' && (
+                      <div className="mb-6 p-5 bg-gradient-to-r from-red-50 to-rose-50 border border-red-200 rounded-2xl flex items-center gap-4">
+                        <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                          <AlertCircle className="text-red-600" size={24} />
+                        </div>
+                        <div>
+                          <p className="text-red-800 font-semibold">Something went wrong</p>
+                          <p className="text-red-700 text-sm">Please try again later.</p>
+                        </div>
+                      </div>
+                    )}
                     
-                    <form className="space-y-6 relative">
+                    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 relative">
                       {/* Name */}
                       <div>
                         <label htmlFor="reviewName" className={labelStyles}>
@@ -372,11 +437,21 @@ export default function ReviewsPage() {
                       {/* Submit Button */}
                       <button
                         type="submit"
-                        className="group relative w-full overflow-hidden bg-gradient-to-r from-accent to-accent2 text-white px-8 py-5 rounded-xl font-semibold text-lg shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition-all"
+                        disabled={isSubmitting}
+                        className="group relative w-full overflow-hidden bg-gradient-to-r from-accent to-accent2 text-white px-8 py-5 rounded-xl font-semibold text-lg shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                       >
                         <span className="relative z-10 flex items-center justify-center gap-3">
-                          <Send size={20} className="group-hover:translate-x-1 transition-transform" />
-                          Submit Review
+                          {isSubmitting ? (
+                            <>
+                              <span className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent" />
+                              Submitting...
+                            </>
+                          ) : (
+                            <>
+                              <Send size={20} className="group-hover:translate-x-1 transition-transform" />
+                              Submit Review
+                            </>
+                          )}
                         </span>
                         <div className="absolute inset-0 bg-gradient-to-r from-accent2 to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                       </button>
@@ -410,7 +485,7 @@ export default function ReviewsPage() {
               Ready to Create Your Story?
             </h2>
             <p className="text-lg text-neutral mb-10 max-w-2xl mx-auto">
-              Join our community of happy clients. Book your consultation and let us make your special day unforgettable.
+              Join our community of happy clients. Book a consultation and let us make your special day unforgettable.
             </p>
             <Link
               href="/book"
