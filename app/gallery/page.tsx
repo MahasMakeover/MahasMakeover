@@ -6,7 +6,7 @@ import { X, Instagram, Youtube, Camera, Sparkles, Heart, ChevronLeft, ChevronRig
 import Image from 'next/image'
 import Link from 'next/link'
 
-const categories = ['All', 'Bridal', 'Bridesmaids', 'Celebrity', 'Pre-wedding']
+const categories = ['All', 'Bridal', 'BridesMaid', 'Celebrity', 'Pre-wedding']
 
 interface GalleryItem {
   id: string | number
