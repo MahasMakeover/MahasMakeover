@@ -10,7 +10,7 @@ const heroImages = [
   {
     src: '/images/hero-1.jpg',
     alt: 'Luxury bridal makeup look',
-    title: 'Luxury Bridal Makeup & Saree Draping',
+    title: 'Luxury Bridal Makeover',
     subtitle: 'Bespoke bridal looks, photoshoot styling and professional saree draping — personalised for your special day.',
   },
   {
@@ -22,7 +22,7 @@ const heroImages = [
   {
     src: '/images/hero-3.jpg',
     alt: 'Professional photoshoot styling',
-    title: 'Professional Makeup Classes',
+    title: 'Professional Makeup Classes maha',
     subtitle: 'Learn the art of bridal makeup with personalized training sessions.',
   },
 ]

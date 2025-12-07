@@ -43,7 +43,7 @@ export default function ContactPage() {
                       href="tel:+91XXXXXXXXXX"
                       className="text-neutral hover:text-accent transition-colors"
                     >
-                      +91 XXXXXXXXXX
+                      +91 7548835393
                     </a>
                   </div>
                 </div>
@@ -57,7 +57,7 @@ export default function ContactPage() {
                       href="mailto:info@mahasmakeover.com"
                       className="text-neutral hover:text-accent transition-colors"
                     >
-                      info@mahasmakeover.com
+                      mahassmakeover@gmail.com
                     </a>
                   </div>
                 </div>
@@ -67,7 +67,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-text mb-1">Location</h3>
-                    <p className="text-neutral">City, State, India</p>
+                    <p className="text-neutral">Chennai, India</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">

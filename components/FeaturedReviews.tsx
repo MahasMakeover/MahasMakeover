@@ -6,21 +6,21 @@ import Link from 'next/link'
 
 const reviews = [
   {
-    name: 'Priya Sharma',
+    name: 'Priya',
     rating: 5,
     review: 'Maha transformed my wedding day! The makeup was flawless and lasted all day. Highly recommend!',
     eventType: 'Bridal',
     image: '/review-1.jpg',
   },
   {
-    name: 'Anjali Patel',
+    name: 'Anjali',
     rating: 5,
     review: 'The saree draping service was exceptional. Maha has an eye for detail and made me feel like a princess.',
     eventType: 'Reception',
     image: '/review-2.jpg',
   },
   {
-    name: 'Riya Mehta',
+    name: 'Rithu',
     rating: 5,
     review: 'Attended the bridal makeup class and learned so much! Maha is a wonderful teacher.',
     eventType: 'Class',

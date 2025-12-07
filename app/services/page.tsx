@@ -21,6 +21,7 @@ const services = [
       'Touch-ups throughout the day',
       'Premium makeup products',
       'Hair styling coordination',
+      'Perfect Saree Draping'
     ],
   },
   {
@@ -28,14 +29,15 @@ const services = [
     icon: Users,
     title: 'Event Makeup',
     description:
-      'Haldi, Mehndi, Engagement, Reception, Family events',
+      'Glamorous looks for weddings, parties, and special occasions',
     image: '/images/service-2.jpg',
     details: [
       'Haldi ceremony makeup',
       'Mehndi function styling',
-      'Engagement party looks',
-      'Reception glamour',
+      'Engagement looks',
+      'Sangeeth glamour',
       'Family event makeup',
+
     ],
   },
   {
@@ -43,11 +45,12 @@ const services = [
     icon: Camera,
     title: 'Photoshoots',
     description:
-      'Editorial and pre-wedding photoshoots, location shoots',
+      'Editorial and pre-wedding photoshoots, glam shoots',
     image: '/images/service-3.jpg',
     details: [
+      'celebrity shoots',
       'Pre-wedding photoshoot makeup',
-      'Editorial and fashion shoots',
+      'Fashion shoots',
       'Location-based styling',
       'HD makeup for cameras',
       'Collaboration with photographers',
@@ -141,7 +144,7 @@ export default function ServicesPage() {
                         src={service.image}
                         alt={service.title}
                         fill
-                        className="object-cover"
+                        className="object-cover service-img"
                         sizes="(max-width: 768px) 100vw, 50vw"
                         loading="lazy"
                       />

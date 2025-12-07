@@ -5,8 +5,8 @@ import { motion } from 'framer-motion'
 import { Sparkles, Heart, Award, Users, Clock, Star } from 'lucide-react'
 
 const stats = [
-  { number: '500+', label: 'Happy Brides', icon: Heart },
-  { number: '8+', label: 'Years Experience', icon: Clock },
+  { number: '500+', label: 'Happy clients', icon: Heart },
+  { number: '6+', label: 'Years Experience', icon: Clock },
   { number: '1000+', label: 'Events Completed', icon: Users },
   { number: '4.9', label: 'Average Rating', icon: Star },
 ]
@@ -39,7 +39,7 @@ export default function AboutPage() {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-1.jpg"
+            src="/images/hero-3.jpg"
             alt="Maha&apos;s Makeover"
             fill
             className="object-cover"
@@ -120,7 +120,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-accent/10 backdrop-blur-md p-6 rounded-2xl border border-accent/20 shadow-xl hidden lg:block">
-                  <div className="text-3xl font-heading font-bold text-accent mb-1">8+</div>
+                  <div className="text-3xl font-heading font-bold text-accent mb-1">6+</div>
                   <div className="text-sm text-neutral">Years of Excellence</div>
                 </div>
               </motion.div>
@@ -138,11 +138,11 @@ export default function AboutPage() {
                   <p>
                     Maha&apos;s Makeover is a professional bridal makeup service led by a
                     passionate makeup artist who specializes in bridal looks and
-                    event makeup for weddings (Haldi, Mehendi, Engagement, Wedding,
-                    Reception), photoshoots, and other celebrations.
+                    event makeup for weddings (Engagement, Wedding,
+                    Reception, Halsi, Mehandi, Sangeeth, Pre\Post wedding), photoshoots, and other celebrations.
                   </p>
                   <p>
-                    In addition to makeup, the business offers expert saree draping and
+                    In addition to makeup, the business offers expert Hairstyling, saree draping and
                     personalised bridal makeup classes. The business emphasizes luxury,
                     elegance, and a modern aesthetic, delivering tailored looks that
                     match each client&apos;s personality and event.

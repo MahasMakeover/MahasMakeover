@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, Instagram } from 'lucide-react'
 import Image from 'next/image'
 
-const categories = ['All', 'Bridal', 'Haldi', 'Photoshoot', 'Saree']
+const categories = ['All', 'Bridal', 'BridesMaid', 'Celebrity', 'Pre-wedding']
 
 interface GalleryItem {
   id: string | number
@@ -19,29 +19,44 @@ export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null)
   const galleryItems: GalleryItem[] = [
     { id: 1, category: 'Bridal', src: '/images/gallery-1.jpg', alt: 'Bridal look 1' },
-    { id: 2, category: 'Haldi', src: '/images/gallery-2.jpg', alt: 'Haldi ceremony' },
-    { id: 3, category: 'Photoshoot', src: '/images/gallery-3.jpg', alt: 'Photoshoot 1' },
-    { id: 4, category: 'Saree', src: '/images/gallery-4.jpg', alt: 'Saree draping' },
-    { id: 5, category: 'Bridal', src: '/images/gallery-1.jpg', alt: 'Bridal look 1' },
-    { id: 6, category: 'Haldi', src: '/images/gallery-2.jpg', alt: 'Haldi ceremony' },
-    { id: 7, category: 'Photoshoot', src: '/images/gallery-3.jpg', alt: 'Photoshoot 1' },
-    { id: 8, category: 'Saree', src: '/images/gallery-4.jpg', alt: 'Saree draping' },
-    { id: 9, category: 'Bridal', src: '/images/gallery-1.jpg', alt: 'Bridal look 1' },
-    { id: 10, category: 'Haldi', src: '/images/gallery-2.jpg', alt: 'Haldi ceremony' },
-    { id: 11, category: 'Photoshoot', src: '/images/gallery-3.jpg', alt: 'Photoshoot 1' },
-    { id: 12, category: 'Saree', src: '/images/gallery-4.jpg', alt: 'Saree draping' },
-    { id: 13, category: 'Bridal', src: '/images/gallery-1.jpg', alt: 'Bridal look 1' },
-    { id: 14, category: 'Haldi', src: '/images/gallery-2.jpg', alt: 'Haldi ceremony' },
-    { id: 15, category: 'Photoshoot', src: '/images/gallery-3.jpg', alt: 'Photoshoot 1' },
-    { id: 16, category: 'Saree', src: '/images/gallery-4.jpg', alt: 'Saree draping' },
-    { id: 17, category: 'Bridal', src: '/images/gallery-1.jpg', alt: 'Bridal look 1' },
-    { id: 18, category: 'Haldi', src: '/images/gallery-2.jpg', alt: 'Haldi ceremony' },
-    { id: 19, category: 'Photoshoot', src: '/images/gallery-3.jpg', alt: 'Photoshoot 1' },
-    { id: 20, category: 'Saree', src: '/images/gallery-4.jpg', alt: 'Saree draping' },
-    { id: 21, category: 'Bridal', src: '/images/gallery-1.jpg', alt: 'Bridal look 1' },
-    { id: 22, category: 'Haldi', src: '/images/gallery-2.jpg', alt: 'Haldi ceremony' },
-    { id: 23, category: 'Photoshoot', src: '/images/gallery-3.jpg', alt: 'Photoshoot 1' },
-    { id: 24, category: 'Saree', src: '/images/gallery-4.jpg', alt: 'Saree draping' }
+    { id: 2, category: 'Bridal', src: '/images/gallery-2.jpg', alt: 'Bridal look 1' },
+    { id: 3, category: 'Bridal', src: '/images/gallery-3.jpg', alt: 'Bridal look 1' },
+    { id: 4, category: 'BridesMaid', src: '/images/gallery-4.jpg', alt: 'BridesMaid ceremony' },
+    { id: 5, category: 'Celebrity', src: '/images/gallery-5.jpg', alt: 'Celebrity 1' },
+    { id: 6, category: 'Pre-wedding', src: '/images/gallery-6.jpg', alt: 'Pre-wedding draping' },
+    { id: 7, category: 'Bridal', src: '/images/gallery-7.jpg', alt: 'Bridal look 1' },
+    { id: 8, category: 'Bridal', src: '/images/gallery-8.jpg', alt: 'Bridal look 1' },
+    { id: 9, category: 'BridesMaid', src: '/images/gallery-9.jpg', alt: 'BridesMaid ceremony' },
+    { id: 10, category: 'BridesMaid', src: '/images/gallery-10.jpg', alt: 'BridesMaid ceremony' },
+    { id: 11, category: 'Celebrity', src: '/images/gallery-11.jpg', alt: 'Celebrity 1' },
+    { id: 12, category: 'Pre-wedding', src: '/images/gallery-12.jpg', alt: 'Pre-wedding draping' },
+    { id: 13, category: 'Bridal', src: '/images/gallery-13.jpg', alt: 'Bridal look 1' },
+    { id: 14, category: 'Bridal', src: '/images/gallery-14.jpg', alt: 'Bridal look 1' },
+    { id: 15, category: 'Bridal', src: '/images/gallery-15.jpg', alt: 'Bridal look 1' },
+    { id: 16, category: 'BridesMaid', src: '/images/gallery-16.jpg', alt: 'BridesMaid ceremony' },
+    { id: 17, category: 'Celebrity', src: '/images/gallery-17.jpg', alt: 'Celebrity 1' },
+    { id: 18, category: 'Celebrity', src: '/images/gallery-18.jpg', alt: 'Pre-wedding draping' },
+    { id: 19, category: 'Pre-wedding', src: '/images/gallery-19.jpg', alt: 'Bridal look 1' },
+    { id: 20, category: 'Bridal', src: '/images/gallery-20.jpg', alt: 'Bridal look 1' },
+    { id: 21, category: 'Bridal', src: '/images/gallery-21.jpg', alt: 'Bridal look 1' },
+    { id: 22, category: 'Bridal', src: '/images/gallery-22.jpg', alt: 'BridesMaid ceremony' },
+    { id: 23, category: 'BridesMaid', src: '/images/gallery-23.jpg', alt: 'Celebrity 1' },
+    { id: 24, category: 'Celebrity', src: '/images/gallery-24.jpg', alt: 'Celebrity 1' },
+    { id: 25, category: 'Celebrity', src: '/images/gallery-25.jpg', alt: 'Pre-wedding draping' },
+    { id: 26, category: 'Pre-wedding', src: '/images/gallery-26.jpg', alt: 'Bridal look 1' },
+    { id: 27, category: 'Bridal', src: '/images/gallery-27.jpg', alt: 'Bridal look 1' },
+    { id: 28, category: 'Bridal', src: '/images/gallery-28.jpg', alt: 'Bridal look 1' },
+    { id: 29, category: 'Bridal', src: '/images/gallery-29.jpg', alt: 'BridesMaid ceremony' },
+    { id: 30, category: 'BridesMaid', src: '/images/gallery-30.jpg', alt: 'Celebrity 1' },
+    { id: 31, category: 'Celebrity', src: '/images/gallery-31.jpg', alt: 'Pre-wedding draping' },
+    { id: 32, category: 'Pre-wedding', src: '/images/gallery-32.jpg', alt: 'Bridal look 1' },
+    { id: 33, category: 'Bridal', src: '/images/gallery-33.jpg', alt: 'Bridal look 1' },
+    { id: 34, category: 'Bridal', src: '/images/gallery-34.jpg', alt: 'Bridal look 1' },
+    { id: 35, category: 'Bridal', src: '/images/gallery-35.jpg', alt: 'BridesMaid ceremony' },
+    { id: 36, category: 'BridesMaid', src: '/images/gallery-36.jpg', alt: 'Celebrity 1' },
+    { id: 37, category: 'Celebrity', src: '/images/gallery-37.jpg', alt: 'Celebrity 1' },
+    { id: 38, category: 'Celebrity', src: '/images/gallery-38.jpg', alt: 'Pre-wedding draping' },
+    { id: 39, category: 'Pre-wedding', src: '/images/gallery-39.jpg', alt: 'Bridal look 1' }
   ]
 
   const filteredItems =

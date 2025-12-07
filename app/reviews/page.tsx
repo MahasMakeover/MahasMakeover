@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 const reviews = [
   {
     id: 1,
-    name: 'Priya Sharma',
+    name: 'Priyanka',
     rating: 5,
     review:
       'Maha transformed my wedding day! The makeup was flawless and lasted all day. Highly recommend!',
@@ -16,7 +16,7 @@ const reviews = [
   },
   {
     id: 2,
-    name: 'Anjali Patel',
+    name: 'Anjali',
     rating: 5,
     review:
       'The saree draping service was exceptional. Maha has an eye for detail and made me feel like a princess.',
@@ -25,7 +25,7 @@ const reviews = [
   },
   {
     id: 3,
-    name: 'Riya Mehta',
+    name: 'Rithu',
     rating: 5,
     review:
       'Attended the bridal makeup class and learned so much! Maha is a wonderful teacher.',
@@ -39,11 +39,11 @@ const reviews = [
     review:
       'Perfect makeup for my engagement! Everyone was asking who did my makeup.',
     eventType: 'Engagement',
-    date: '2023-12-20',
+    date: '2025-11-20',
   },
   {
     id: 5,
-    name: 'Kavya Nair',
+    name: 'shymal',
     rating: 5,
     review:
       'The photoshoot makeup was amazing. The looks translated beautifully on camera.',
