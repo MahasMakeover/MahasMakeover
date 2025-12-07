@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   description: 'Mahas Makeover is a luxury bridal makeup artist offering bridal looks, saree draping, photoshoots and bridal classes. Book your bridal trial today.',
   keywords: ['bridal makeup', 'event makeup', 'saree draping', 'bridal classes', 'makeup artist'],
   authors: [{ name: 'Mahas Makeover' }],
+  icons: {
+    icon: [
+      { url: '/images/logo.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/images/logo.png', type: 'image/png' },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -48,7 +56,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
