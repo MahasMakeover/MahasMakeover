@@ -39,7 +39,7 @@ export default function GalleryPage() {
     { id: 5, category: 'Celebrity', src: '/images/gallery-5.jpg', alt: 'Celebrity look' },
     { id: 6, category: 'Pre-wedding', src: '/images/gallery-6.jpg', alt: 'Pre-wedding shoot' },
     { id: 7, category: 'Bridal', src: '/images/gallery-7.jpg', alt: 'Bridal look 4' },
-    { id: 8, category: 'Bridal', src: '/images/gallery-8.jpg', alt: 'Bridal look 5' },
+    { id: 8, category: 'Bridal', src: '/images/gallery-8.JPG', alt: 'Bridal look 5' },
     { id: 9, category: 'BridesMaid', src: '/images/gallery-9.jpg', alt: 'BridesMaid look 2' },
     { id: 10, category: 'BridesMaid', src: '/images/gallery-10.jpg', alt: 'BridesMaid look 3' },
     { id: 11, category: 'Celebrity', src: '/images/gallery-11.jpg', alt: 'Celebrity look 2' },
