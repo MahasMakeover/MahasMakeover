@@ -32,11 +32,13 @@ const classes = [
     price: '₹8,000',
     maxStudents: 4,
     curriculum: [
+      'Customized Skincare Routine',
+      'Long-Wear & Waterproof Products',
+      'Flawless Blending Techniques',
       'Advanced contouring and highlighting',
-      'Smoky eye techniques',
-      'False lash application',
-      'HD makeup for photography',
-      'Troubleshooting common issues',
+      'Baking & Setting',
+      'Feature Emphasis',
+      'Integrated Hair Styling'
     ],
   },
   {
